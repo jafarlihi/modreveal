@@ -1,4 +1,5 @@
 #include <stdbool.h>
+#include <unistd.h>
 #include <netlink/socket.h>
 #include <netlink/genl/genl.h>
 #include <netlink/genl/family.h>
@@ -21,6 +22,9 @@ int run_lsmod(char lines[][512]) {
 }
 
 int main(int argc, char *argv[]) {
+  popen("insmod ./modreveal.ko", "r");
+  sleep(2);
+
   char lsmod[512][512];
   int lsmod_count = run_lsmod(lsmod);
 
@@ -72,6 +76,7 @@ int main(int argc, char *argv[]) {
     module = strtok(NULL, " ");
   }
 
+  popen("rmmod modreveal", "r");
   free(buf);
   return 0;
 }
