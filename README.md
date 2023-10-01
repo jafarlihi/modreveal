@@ -1,3 +1,5 @@
+(This project is currently unmaintained. It might still work on some Arch Linux but I have observed obvious issues when using a different laptop but don't have time to fix it.)
+
 # modreveal
 
 `modreveal` is a small utility that prints the names of hidden LKMs if any exists.
